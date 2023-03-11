@@ -1,0 +1,18 @@
+name = "Pedigree"
+uuid = "fd4f9bdd-bf75-4419-92eb-a4eb745abf0e"
+version = "0.1.1"
+authors = ["Austin Putz <putz.austin@gmail.com>",
+           "Juan Steibel <jsteibel@iastate.edu>"]
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+
+[compat]
+julia = "1.8"
+
+
+
+
+
+

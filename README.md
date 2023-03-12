@@ -10,6 +10,15 @@ As of now it can:
 
 See below for examples of each function. 
 
+The key to using my functions is to have the first 3 columns be:
+
+1. Animal
+2. Sire
+3. Dam
+
+Each will only extract the 1st 3 columns to use, you can have any number
+of columns in your pedigree (such as Line or Sex). 
+
 ```julia
 
 # load Pkg package
@@ -87,6 +96,13 @@ julia> sortped
 ```
 
 
+
+
+
+
+
+
+
 ## renum_ped.jl
 
 This function is to renumber the pedigree from 1 to n and return a 3 column DataFrame as Int64. 
@@ -115,6 +131,23 @@ julia> renumped
 
 ```
 
+The `renum_ped()` function will output 6 columns, the first
+3 will be the renumbered pedigree, the last 3 will be the 
+original IDs. 
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+
 ## makeA.jl
 
 Create the **A** matrix using the tabular method. 
@@ -139,6 +172,45 @@ julia> A
  0.84375  0.15625  0.59375  0.78125  0.5625  0.78125  0.84375  1.0      0.8125   0.703125  0.421875  1.34375
 
 ```
+
+<br>
+<br>
+<br>
+
+## Read your own pedigree
+
+```julia
+# load CSV
+using CSV
+
+# directory and data file name
+working_dir = "/Users/austinputz/Documents/ISU/Classes/AnS_562/2023/Julia/"
+data_file   = "pedigree_MSU.csv"
+
+# load swine data
+ped_MSU = CSV.read(working_dir * data_file,   # this will just combine the 2 strings
+                DataFrame,
+                header=true, 
+                delim=',', 
+                missingstring="NA")
+
+# we can now use this to sort, renumber, and calculate A
+
+# sort pedigreee
+ped_MSU_sort = sort_ped(ped_MSU)
+
+# renumber pedigree
+ped_MSU_renum = renum_ped(ped_MSU_sort)
+
+# calculate A matrix 
+A = makeA(ped_MSU_renum)
+
+
+```
+
+
+
+
 
 
 

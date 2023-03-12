@@ -10,7 +10,9 @@ using DataFrames
 using LinearAlgebra
 
 # include functions
-include("functions.jl")
+include("sort_ped.jl")
+include("renum_ped.jl")
+include("makeA.jl")
 
 # export function
 export sort_ped

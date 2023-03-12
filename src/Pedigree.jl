@@ -2,6 +2,8 @@
 # Pedigree.jl
 #--------------------------------------------------------------------------------#
 
+module Pedigree
+
 # load packages
 using DataFrames
 
@@ -15,6 +17,6 @@ export sort_ped
 export renum_ped
 export makeA
 
-
+end
 
 

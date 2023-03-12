@@ -12,6 +12,7 @@ ped = DataFrame(
 	dam    = ["D", "0", "I", "C", "B", "B", "J", "C", "I", "D"]
 )
 
+julia> ped
 10×3 DataFrame
  Row │ animal  sire    dam
      │ String  String  String
@@ -44,6 +45,7 @@ shuffle!(ped)
 # sort the pedigree
 sortped = sort_ped(ped)
 
+julia> sortped
 12×3 DataFrame
  Row │ animal  sire    dam    
      │ String  String  String 
@@ -72,6 +74,7 @@ This function is to renumber the pedigree from 1 to n and return a 3 column Data
 # renumber the pedigree
 renumped = renum_ped(ped)
 
+julia> renumped
 12×6 DataFrame
  Row │ RenumID  SireRenumID  DamRenumID  animal  sire    dam    
      │ Int64    Int64        Int64       String  String  String 
@@ -99,6 +102,7 @@ Create the A matrix using the tabular method.
 # create the A matrix with renumbered pedigree
 A = makeA(renumped)
 
+julia> A
 12×12 Matrix{Float64}:
  1.0      0.0      0.5      0.75     0.5     0.625    0.75     0.6875   0.6875   0.75      0.5       0.84375
  0.0      1.0      0.5      0.25     0.5     0.375    0.25     0.3125   0.3125   0.25      0.0       0.15625

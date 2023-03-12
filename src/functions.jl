@@ -8,7 +8,8 @@
 #   - sort_ped()
 #   - renum_ped()
 #   - makeA() 
-#   - 
+
+
 
 
 
@@ -191,8 +192,9 @@ function sort_ped(ped::DataFrame; maxrounds=1000)
 
 end
 
-# export function
-export sort_ped
+
+
+
 
 
 
@@ -250,8 +252,9 @@ function renum_ped(ped::DataFrame)
 
 end
 
-# export function
-export renum_ped
+
+
+
 
 
 
@@ -357,9 +360,6 @@ function makeA(ped::DataFrame)
 	return A[2:end, 2:end]
 
 end # end function
-
-# export function
-export makeA
 
 
 

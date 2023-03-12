@@ -1,34 +1,29 @@
 
 # load libraries
-using Test
 using Pkg
+using Test
 using Pedigree
 using DataFrames
 using Random
 
-# test Pedigree package
-@testset "Pedigree.jl" begin
-
-	@test ped = DataFrames.DataFrame( 
+# make test pedigree
+ped = DataFrames.DataFrame( 
 		animal = ["G", "E", "K", "I", "C", "D", "L", "F", "J", "H"], 
 		sire   = ["A", "A", "H", "A", "A", "A", "A", "A", "H", "F"], 
 		dam    = ["D", "0", "I", "C", "B", "B", "J", "C", "I", "D"]
 	)
 
-	@test Random.shuffle!(ped)
+# shuffle the pedigree
+Random.shuffle!(ped)
 
-    @test ped_sort = Pedigree.sort_ped(ped)
+# sort the pedigree
+ped_sort = Pedigree.sort_ped(ped)
 
-    @test ped_renum = Pedigree.renum_ped(ped_sort)
+# renumber the pedigree
+ped_renum = Pedigree.renum_ped(ped_sort)
 
-    @test A = Pedigree.makeA(ped_renum)
-
-	@test println(A)
-
-end
-
-
-
+# make A
+A = Pedigree.makeA(ped_renum)
 
 
 

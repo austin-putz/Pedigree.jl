@@ -12,6 +12,9 @@ See below for examples of each function.
 
 ```julia
 
+# load Pkg package
+using Pkg
+
 # you can load the Pedigree package with:
 # this package is unregistered so you have to load it like this for now
 Pkg.add(url="https://github.com/austin-putz/Pedigree.jl")

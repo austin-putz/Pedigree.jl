@@ -59,6 +59,18 @@ julia> ped
 
 ```
 
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+
 ## sort_ped.jl
 
 This function takes a pedigree as a DataFrame (DataFrames.jl) and returns a sorted pedigree with the ancestors stacked on top (if any). 
@@ -102,6 +114,9 @@ julia> sortped
 
 
 
+<br>
+<br>
+<br>
 
 ## renum_ped.jl
 
@@ -146,7 +161,6 @@ original IDs.
 <br>
 <br>
 <br>
-<br>
 
 ## makeA.jl
 
@@ -172,6 +186,13 @@ julia> A
  0.84375  0.15625  0.59375  0.78125  0.5625  0.78125  0.84375  1.0      0.8125   0.703125  0.421875  1.34375
 
 ```
+
+
+
+
+
+
+
 
 <br>
 <br>

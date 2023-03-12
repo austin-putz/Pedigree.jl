@@ -64,6 +64,42 @@ julia> ped
 
 
 
+<br>
+<br>
+<br>
+
+## stack_ancestors.jl
+
+We can stack ancestors (parents who are not in the pedigree) on top of the 
+pedigree with this function. 
+
+```julia
+# load Pedigree package
+using Pedigree
+
+# stack ancestors
+stack_ancestors(ped)
+
+[ Info: Pedigree is a DataFrame
+[ Info: Stacking 2 ancestors on top of the pedigree
+12×3 DataFrame
+ Row │ animal  sire    dam
+     │ String  String  String
+─────┼────────────────────────
+   1 │ A       0       0
+   2 │ B       0       0
+   3 │ G       A       D
+   4 │ E       A       0
+   5 │ K       H       I
+   6 │ I       A       C
+   7 │ C       A       B
+   8 │ D       A       B
+   9 │ L       A       J
+  10 │ F       A       C
+  11 │ J       H       I
+  12 │ H       F       D
+
+```
 
 
 
@@ -78,7 +114,6 @@ This function takes a pedigree as a DataFrame (DataFrames.jl) and returns a sort
 This will take any DataFrame with 1. Animal, 2. Sire, 3. Dam as a String. 
 
 ```julia
-using Pedigree
 using Random
 
 # shuffle order of pedigree (to test sort_ped function)

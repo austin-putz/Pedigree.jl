@@ -1,8 +1,23 @@
 # Pedigree.jl
 
-Pedigree functions implemented in Julia
+Pedigree functions implemented in pure Julia. 
+
+As of now it can:
+
+* Sort a pedigree with any IDs (0 is missing)
+* Renumber your pedigree once sorted
+* Create the **A** Matrix to use later or extract inbreeding values
+
+See below for examples of each function. 
 
 ```julia
+
+# you can load the Pedigree package with:
+# this package is unregistered so you have to load it like this for now
+Pkg.add(url="https://github.com/austin-putz/Pedigree.jl")
+
+# load packages
+using Pedigree
 using DataFrames
 
 # generate pedigree
@@ -11,6 +26,8 @@ ped = DataFrame(
 	sire   = ["A", "A", "H", "A", "A", "A", "A", "A", "H", "F"], 
 	dam    = ["D", "0", "I", "C", "B", "B", "J", "C", "I", "D"]
 )
+
+# notice "0" is missing!!
 
 julia> ped
 10×3 DataFrame

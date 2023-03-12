@@ -37,6 +37,7 @@ This function takes a pedigree as a DataFrame (DataFrames.jl) and returns a sort
 This will take any DataFrame with 1. Animal, 2. Sire, 3. Dam as a String. 
 
 ```julia
+using Pedigree
 using Random
 
 # shuffle order of pedigree (to test sort_ped function)

@@ -32,6 +32,9 @@
 # Begin Function
 function makeA(ped::DataFrame)
 
+    # extract 1st 3 columns (if more from renumered pedigree)
+    ped = ped[:, 1:3]
+
     # check eltypes (should be Int64, not a string)
     if eltype(ped[:,1]) == Int64
         @info "Gave the correct type (Int64)"

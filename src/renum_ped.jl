@@ -35,7 +35,7 @@ function renum_ped(ped::DataFrame)
 	ped.DamRenumID = map(x -> dict[x], ped.dam)
 	
 	# extract renumbered columns
-	ped = ped[:, 4:6]
+	ped = ped[:, [4, 5, 6, 1, 2, 3]]
 
 	# return the renumbered pedigree
 	return ped

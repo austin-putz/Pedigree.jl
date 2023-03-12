@@ -1,10 +1,8 @@
 
 # load libraries
-import Pkg
-#import Pedigree
-include("../functions.jl")
-using Pedigree
 using Test
+using Pkg
+using Pedigree
 using DataFrames
 using Random
 

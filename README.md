@@ -94,9 +94,9 @@ julia> renumped
 
 ```
 
-## A.jl
+## makeA.jl
 
-Create the A matrix using the tabular method. 
+Create the **A** matrix using the tabular method. 
 
 ```julia
 # create the A matrix with renumbered pedigree

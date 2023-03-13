@@ -2,7 +2,7 @@
 
 Pedigree functions implemented in pure Julia. 
 
-Please see the Wiki for more: [Wiki](https://github.com/austin-putz/Pedigree.jl.wiki.git)
+Please see the Wiki for more: [Wiki](https://github.com/austin-putz/Pedigree.jl/wiki)
 
 As of now it can:
 

@@ -237,6 +237,8 @@ julia> A
 
 ## Read your own pedigree
 
+You can download this pedigree [here](https://raw.githubusercontent.com/austin-putz/AnS_562_Linear_Models_S2023/main/Data/swine_ped.csv) to test this package. Please then change `working_dir` and `data_file` to your local directory. 
+
 ```julia
 # load CSV
 using CSV
@@ -252,7 +254,7 @@ ped_MSU = CSV.read(working_dir * data_file,   # this will just combine the 2 str
                 delim=',', 
                 missingstring="NA")
 
-# we can now use this to sort, renumber, and calculate A
+# we can now use this real pedigree to sort, renumber, and calculate A
 
 # sort pedigreee
 ped_MSU_sort = sort_ped(ped_MSU)
@@ -263,10 +265,22 @@ ped_MSU_renum = renum_ped(ped_MSU_sort)
 # calculate A matrix 
 A = makeA(ped_MSU_renum)
 
-
 ```
 
 
+
+
+
+
+<br>
+<br>
+<br>
+
+## FAQ (frequently asked questions)
+
+You may have a problem downloading Pedigree.jl with [XSim.jl](), I have alerted Hao Cheng of this situation, but XSim seems to be very behind in it's development to include compatability with new packages. So there is an incompatibility with XSim and key packages like DataFrames. I suggest you remove XSim from your environment until XSim gets updated. 
+
+I do suggest trying to learn XSim, but for now you can also try working with that package in it's own environment. Please search how to separate environments and keep a project for only that package with it's old dependencies. 
 
 
 

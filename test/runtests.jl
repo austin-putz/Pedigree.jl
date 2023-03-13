@@ -16,6 +16,9 @@ ped = DataFrames.DataFrame(
 # shuffle the pedigree
 Random.shuffle!(ped)
 
+# stack ancestors
+stack_ancestors(ped)
+
 # sort the pedigree
 ped_sort = Pedigree.sort_ped(ped)
 

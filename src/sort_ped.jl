@@ -72,6 +72,12 @@ function sort_ped(ped::DataFrame; maxrounds=1000)
 	# newped will be stacked each round with new parents
 	# curped will be used to extract the parents of that generation of parents
 	curped = newped
+	
+	# get number of animals in curped
+	n_curped = size(curped, 1)
+
+	# print number in current pedigree
+	@info "  $n_curped non-parents added to the bottom of the pedigree to start"
 
 	#------------------------------------------------------------#
 	# Sort the pedigree
@@ -113,8 +119,14 @@ function sort_ped(ped::DataFrame; maxrounds=1000)
 		# get list of parents that are not in the old pedigree as parents still
 		list_parent_not_in_ped = parents[index_old_parents]
 
-		# subset old pedigree
+		# subset old pedigree to youngest parents - current pedigree
 		curped = oldped[in.(oldped.animal, Ref(list_parent_not_in_ped)), :]
+
+		# get number of animals in curped
+		n_curped = size(curped, 1)
+
+		# print number in current pedigree
+		@info "  $n_curped parents added this round"
 
 		# stack on new pedigree (make sure they go on top)
 		newped = vcat(curped, newped)
@@ -148,6 +160,12 @@ function sort_ped(ped::DataFrame; maxrounds=1000)
 
 	# add missing parents as ancestors
 	ped_ancestors = DataFrame(animal = ancestors, sire="0", dam="0")
+
+	# get number of ancestors
+	n_ancestors = size(ped_ancestors, 1)
+
+	# print number of ancestors
+	@info "  $n_ancestors ancestors added to the top of the pedigree"
 
 	# concat ancestors on top of sorted pedigree
 	newped = vcat(ped_ancestors, newped)

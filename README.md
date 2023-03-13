@@ -2,6 +2,8 @@
 
 Pedigree functions implemented in pure Julia. 
 
+Please see the Wiki for more: [Wiki](https://github.com/austin-putz/Pedigree.jl.wiki.git)
+
 As of now it can:
 
 * Sort a pedigree with any IDs (0 is missing)

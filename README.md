@@ -278,7 +278,7 @@ A = makeA(ped_MSU_renum)
 
 ## FAQ (frequently asked questions)
 
-You may have a problem downloading Pedigree.jl with [XSim.jl](), I have alerted Hao Cheng of this situation, but XSim seems to be very behind in it's development to include compatability with new packages. So there is an incompatibility with XSim and key packages like DataFrames. I suggest you remove XSim from your environment until XSim gets updated. 
+You may have a problem downloading Pedigree.jl with [XSim.jl](https://github.com/reworkhow/XSim.jl), I have alerted Hao Cheng of this situation, but XSim seems to be very behind in it's development to include compatability with new packages. So there is an incompatibility with XSim and key packages like DataFrames. I suggest you remove XSim from your environment until XSim gets updated. 
 
 I do suggest trying to learn XSim, but for now you can also try working with that package in it's own environment. Please search how to separate environments and keep a project for only that package with it's old dependencies. 
 

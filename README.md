@@ -4,11 +4,15 @@ Pedigree functions implemented in pure Julia.
 
 Please see the Wiki for more: [Wiki](https://github.com/austin-putz/Pedigree.jl/wiki)
 
-As of now it can:
+<br>
 
-* Sort a pedigree with any IDs (0 is missing)
-* Renumber your pedigree once sorted
-* Create the **A** Matrix to use later or extract inbreeding values
+## Summary
+
+**What it can do currently:** 
+
+* **Sort** a pedigree with any IDs (0 is missing)
+* **Renumber** your pedigree once sorted
+* Create the **A Matrix** to use later or extract inbreeding values
 
 See below for examples of each function. 
 
@@ -18,8 +22,33 @@ The key to using my functions is to have the first 3 columns be:
 2. Sire
 3. Dam
 
-Each will only extract the 1st 3 columns to use, you can have any number
-of columns in your pedigree (such as Line or Sex). 
+Each will only extract the **1st 3 columns** to use, you can have any number
+of columns in your pedigree (such as Line, Sex, or Date of Birth), this
+way you don't need to subset your pedigree constantly. 
+
+**What I'm implementing soon:**
+
+* Calculate **A** inverse directly (Henderson method, w/ and w/out inbreeding)
+* Calculate the Quass **L** matrix (should be more memory efficient)
+* Summarize the pedigree
+	* Check if sires are also dams and vice versa
+	* Check pedigree depth of each individual (see how far you can trace back ancestors)
+	* Look for duplicates
+	* Summarize family sizes
+	* Summarize sire and dam usage
+* Hopefully parallelize parts to make it more efficient
+* Integrate this package with one for genomics
+
+
+
+
+
+<br>
+<br>
+
+## Examples
+
+Until this package gets officially registered, you have to load with `Pkg.add(url="")` notation (see below). Eventually you will just be able to do `Pkg.add("Pedigree")` after loading `Pkg` with `using Pkg` or use the package manager in `REPL` by clicking the `]` key inside `REPL`. 
 
 ```julia
 
@@ -66,7 +95,7 @@ julia> ped
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -105,7 +134,7 @@ stack_ancestors(ped)
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -151,7 +180,7 @@ julia> sortped
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -195,7 +224,7 @@ original IDs.
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -231,7 +260,7 @@ julia> A
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -272,7 +301,7 @@ A = makeA(ped_MSU_renum)
 
 
 
-<br>
+
 <br>
 <br>
 
@@ -281,6 +310,9 @@ A = makeA(ped_MSU_renum)
 You may have a problem downloading Pedigree.jl with [XSim.jl](https://github.com/reworkhow/XSim.jl), I have alerted Hao Cheng of this situation, but XSim seems to be very behind in it's development to include compatability with new packages. So there is an incompatibility with XSim and key packages like DataFrames. I suggest you remove XSim from your environment until XSim gets updated. 
 
 I do suggest trying to learn XSim, but for now you can also try working with that package in it's own environment. Please search how to separate environments and keep a project for only that package with it's old dependencies. 
+
+
+
 
 
 

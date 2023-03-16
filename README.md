@@ -2,6 +2,8 @@
 
 Pedigree functions implemented in pure Julia. 
 
+**NOTE:** I must point out this is *under contruction* and none of the code is really optimized as I learn Julia. The `makeA()` function is still the tabular method until I can update it to make it much more efficient (either time or memory) as I go. This will happen with time, please be patient... 
+
 Please see the Wiki for more: [Wiki](https://github.com/austin-putz/Pedigree.jl/wiki)
 
 <br>

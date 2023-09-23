@@ -73,7 +73,7 @@ function stack_ancestors(ped::DataFrame)
 	n_ancestors = size(ancestors, 1)
 
 	# print message
-	@info "Stacking $n_ancestors ancestors on top of the pedigree"
+	@info "Found $n_ancestors ancestors (stacking on top of the pedigree)"
 
 	# concat ancestors on top of sorted pedigree
 	ped = vcat(ped_ancestors, ped)

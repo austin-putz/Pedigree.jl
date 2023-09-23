@@ -1,7 +1,7 @@
 name = "Pedigree"
 uuid = "fd4f9bdd-bf75-4419-92eb-a4eb745abf0e"
-authors = ["Austin Putz <putz.austin@gmail.com>", "Juan Steibel <jsteibel@iastate.edu>"]
-version = "0.1.1"
+authors = ["Austin Putz <putz.austin@gmail.com>"]
+version = "0.1.2"
 
 [deps]
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
@@ -10,8 +10,8 @@ Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 
 [compat]
-DataFrames = "1.5"
-julia = "1.8"
+DataFrames = "1.5, 1.6.1"
+julia = "1.9.3"
 
 [extras]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"

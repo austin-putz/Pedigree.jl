@@ -2,10 +2,43 @@
 # renum_ped Function
 #--------------------------------------------------------------------------------#
 
-# Description:
-# 	- This function will return a pedigree that is numbered 1 to n
-# 	- Will return as an Int64 DataFrame
+"""
+    renum_ped(ped::DataFrame)
 
+Renumber a pedigree from 1 to n and convert string IDs to integers.
+
+This function takes a pedigree with string IDs and renumbers all animals from 1 to n,
+maintaining the pedigree relationships. It returns a DataFrame with both the new numeric 
+IDs and the original string IDs.
+
+# Arguments
+- `ped::DataFrame`: A DataFrame with at least 3 columns representing animal ID, sire ID, and dam ID.
+
+# Returns
+- `DataFrame`: A new DataFrame with 6 columns:
+  1. `RenumID`: Renumbered animal ID (1 to n)
+  2. `SireRenumID`: Renumbered sire ID
+  3. `DamRenumID`: Renumbered dam ID
+  4. `animal`: Original animal ID
+  5. `sire`: Original sire ID
+  6. `dam`: Original dam ID
+
+# Examples
+```julia
+using DataFrames
+using Pedigree
+
+# Create a sample pedigree
+ped = DataFrame(
+    animal = ["A", "B", "C", "D"],
+    sire = ["0", "0", "B", "B"],
+    dam = ["0", "0", "A", "C"]
+)
+
+# Renumber the pedigree
+renum_ped = renum_ped(ped)
+```
+"""
 function renum_ped(ped::DataFrame)
 
 	# subset to only the 1st 3 columns

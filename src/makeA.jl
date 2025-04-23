@@ -12,24 +12,49 @@
 # Description
 #------------------------------------------------------------------------------#
 
-# Create A with the tabular method
+"""
+    makeA(ped::DataFrame)
 
-# Make Sure:
-#   - Animals are ordered 1,2,...,n
-#   - Missing parents are coded as 0
+Create the additive relationship matrix (A matrix) using the tabular method.
 
-# Example: 
-#ped = DataFrame( 
-#	animal = [1, 2, 3, 4, 5, 6], 
-#	sire   = [0, 0, 1, 1, 4, 5],
-#	dam    = [0, 0, 2, 0, 3, 2]
-#)
+This function creates the numerator relationship matrix, which represents the 
+additive genetic relationships between all individuals in the pedigree. The method
+used is the classic tabular method.
 
-#------------------------------------------------------------------------------#
-# Function
-#------------------------------------------------------------------------------#
+# Arguments
+- `ped::DataFrame`: A DataFrame with 3 columns representing animal ID, sire ID, and dam ID.
+  The IDs must be integers from 1 to n, with parents appearing before their offspring.
+  Missing parents must be coded as 0.
 
-# Begin Function
+# Returns
+- `Matrix{Float64}`: The additive relationship matrix (A), where element A[i,j] is the
+  additive genetic relationship between individuals i and j.
+
+# Requirements
+- The pedigree must be sorted so that parents appear before their offspring
+- Animal IDs must be integers from 1 to n
+- Missing parents must be coded as 0
+
+# Examples
+```julia
+using DataFrames
+using Pedigree
+
+# Create a sample pedigree (must be numeric and ordered 1 to n)
+ped = DataFrame(
+    animal = [1, 2, 3, 4, 5, 6], 
+    sire   = [0, 0, 1, 1, 4, 5],
+    dam    = [0, 0, 2, 0, 3, 2]
+)
+
+# Create the A matrix
+A = makeA(ped)
+```
+
+# Notes
+For large pedigrees, this may be memory intensive. The diagonal elements contain
+the inbreeding coefficients plus 1.
+"""
 function makeA(ped::DataFrame)
 
     # extract 1st 3 columns (if more from renumered pedigree)

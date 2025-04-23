@@ -315,6 +315,31 @@ Previously [XSim.jl](https://github.com/reworkhow/XSim.jl) was not updated, seem
 
 
 
+<br>
+<br>
 
+## Documentation
+
+The package now includes documentation using Documenter.jl. To build and view the documentation locally:
+
+1. Install Documenter.jl if you haven't already:
+```julia
+using Pkg
+Pkg.add("Documenter")
+```
+
+2. Build the documentation:
+```bash
+cd /path/to/Pedigree.jl/docs
+julia build.jl
+```
+
+3. Open the generated documentation in your browser:
+```bash
+open build/index.html  # On macOS
+# or use your file browser to navigate to the build/index.html file
+```
+
+The documentation includes detailed API references and examples for all functions in the package.
 
 

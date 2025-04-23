@@ -13,6 +13,39 @@
 # Main Function
 #--------------------------------------------------------------------------------#
 
+"""
+    stack_ancestors(ped::DataFrame)
+
+Add missing ancestors to the pedigree.
+
+This function finds all individuals that appear as parents but are not present in
+the pedigree as individuals. These missing ancestors are added to the top of the
+pedigree with unknown parentage (sire and dam set to "0").
+
+# Arguments
+- `ped::DataFrame`: A DataFrame with at least 3 columns representing animal ID, sire ID, and dam ID.
+
+# Returns
+- `DataFrame`: A new DataFrame with ancestors added at the top, with each row containing an animal ID and its parents.
+
+# Examples
+```julia
+using DataFrames
+using Pedigree
+
+# Create a simple pedigree
+ped = DataFrame(
+    animal = ["A", "B", "C"],
+    sire = ["X", "0", "B"],
+    dam = ["Y", "0", "A"]
+)
+
+# Stack missing ancestors
+stacked_ped = stack_ancestors(ped)
+```
+
+In this example, "X" and "Y" would be added to the pedigree with "0" as their parents.
+"""
 function stack_ancestors(ped::DataFrame)
 
 	#------------------------------------------------------------#

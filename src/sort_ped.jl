@@ -2,7 +2,37 @@
 # sort_ped Function
 #--------------------------------------------------------------------------------#
 
-# write function
+"""
+    sort_ped(ped::DataFrame; maxrounds=1000)
+
+Sort a pedigree in ancestral order, ensuring parents appear before their offspring.
+
+This function sorts the pedigree so that all ancestors appear before their descendants.
+It also adds any missing ancestors to the top of the pedigree with unknown parentage.
+
+# Arguments
+- `ped::DataFrame`: A DataFrame with at least 3 columns representing animal ID, sire ID, and dam ID.
+- `maxrounds::Int=1000`: Maximum number of sorting iterations to perform before giving up.
+
+# Returns
+- `DataFrame`: A new DataFrame with the pedigree sorted in ancestral order.
+
+# Examples
+```julia
+using DataFrames
+using Pedigree
+
+# Create a sample pedigree
+ped = DataFrame(
+    animal = ["A", "B", "C", "D"],
+    sire = ["0", "0", "B", "B"],
+    dam = ["0", "0", "A", "C"]
+)
+
+# Sort the pedigree
+sorted_ped = sort_ped(ped)
+```
+"""
 function sort_ped(ped::DataFrame; maxrounds=1000)
 
     # ped::DataFrame

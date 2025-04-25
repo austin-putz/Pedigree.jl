@@ -18,4 +18,6 @@ makedocs(
 
 deploydocs(
     repo = "github.com/austin-putz/Pedigree.jl.git",
+    devbranch = "main",
+    push_preview = true,
 )

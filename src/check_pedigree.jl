@@ -68,28 +68,32 @@ function check_pedigree(ped::DataFrame)
     results = Dict{String, Any}()
 
     # Count total animals
-    results["total_animals"] = size(ped, 1)
+    results["n_rows"] = size(ped, 1)
+
+	# find duplicated IDs, returns DataFrame with only duplicated
+	df_duplicate_animals = find_duplicates(ped, :animal)
 
     # Check for duplicate animal IDs
     # Create a dictionary to count occurrences of each animal ID
-    animal_counts = Dict{String, Int}()
-    for id in ped.animal
-        animal_counts[id] = get(animal_counts, id, 0) + 1
-    end
+    #animal_counts = Dict{String, Int}()
+    #for id in ped.animal
+    #    animal_counts[id] = get(animal_counts, id, 0) + 1
+    #end
     
-    duplicates = filter(p -> p.second > 1, animal_counts)
-    results["duplicate_ids"] = duplicates
-    results["has_duplicates"] = !isempty(duplicates)
+    #duplicates = filter(p -> p.second > 1, animal_counts)
+    results["duplicate_ids"] = df_duplicate_animals.animal
+    results["has_duplicates"] = size(df_duplicate_animals)[1] > 0
     
-    # Count unique animals, sires, and dams
-    results["unique_animals"] = length(unique(ped.animal))
+    # Count unique animals
+    results["n_animals"] = length(unique(ped.animal))
     
     # Get unique sires and dams (excluding missing values represented as "0")
     unique_sires = filter(x -> x != "0", unique(ped.sire))
     unique_dams = filter(x -> x != "0", unique(ped.dam))
     
-    results["number_of_sires"] = length(unique_sires)
-    results["number_of_dams"] = length(unique_dams)
+	# Count n unique Sires and Dams
+    results["n_sires"] = length(unique_sires)
+    results["n_dams"] = length(unique_dams)
 
     # Find ancestors (sires or dams) that don't appear as animals
     all_parents = unique(vcat(ped.sire, ped.dam))
@@ -178,8 +182,8 @@ function check_pedigree(ped::DataFrame)
 
     # Print summary
     println("\n=== Pedigree Summary ===")
-    println("Total animals: $(results["total_animals"])")
-    println("Unique animals: $(results["unique_animals"])")
+    println("Total rows in pedigree: $(results["n_rows"])")
+    println("Unique animals: $(results["n_animals"])")
     
     if results["has_duplicates"]
         println("\nWARNING: Duplicate animal IDs found:")
@@ -190,8 +194,8 @@ function check_pedigree(ped::DataFrame)
         println("No duplicate animal IDs found.")
     end
     
-    println("\nNumber of sires: $(results["number_of_sires"])")
-    println("Number of dams: $(results["number_of_dams"])")
+    println("\nNumber of sires: $(results["n_sires"])")
+    println("Number of dams: $(results["n_dams"])")
     println("External ancestors (not in animal column): $(results["number_of_external_ancestors"])")
     
     println("\nFamily structure:")
@@ -217,6 +221,9 @@ function check_pedigree(ped::DataFrame)
     println("  Animals with unknown dam: $(results["animals_with_unknown_dam"])")
     println("  Animals with both parents unknown: $(results["animals_with_both_parents_unknown"])")
     println("  Animals with both parents known: $(results["animals_with_both_parents_known"])")
+
+	# add extra space before results (dictionary) printed
+	println("\n\n")
     
     return results
 end

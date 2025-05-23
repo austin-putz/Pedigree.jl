@@ -26,7 +26,7 @@ ped_sort = Pedigree.sort_ped(ped)
 ped_renum = Pedigree.renum_ped(ped_sort)
 
 # make A
-A = Pedigree.makeA(ped_renum)
+A = Pedigree.make_A(ped_renum)
 
 
 

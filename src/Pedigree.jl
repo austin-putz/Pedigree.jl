@@ -8,6 +8,7 @@ module Pedigree
 using DataFrames
 using Statistics
 using StatsBase
+using Random
 
 # include functions from other files in the package
 include("stack_ancestors.jl")
@@ -16,6 +17,7 @@ include("renum_ped.jl")
 include("make_A.jl")
 include("check_pedigree.jl")
 include("find_duplicates.jl")
+include("create_pedigree.jl")
 
 # export functions for use outside the module
 export stack_ancestors
@@ -24,5 +26,6 @@ export renum_ped
 export make_A
 export check_pedigree
 export find_duplicates
+export create_pedigree
 
 end # end of Pedigree module

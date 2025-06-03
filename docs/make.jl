@@ -10,7 +10,7 @@ makedocs(
             "stack_ancestors.md",
             "sort_ped.md",
             "renum_ped.md",
-            "makeA.md"
+            "make_A.md"
         ],
         "API Reference" => "api.md"
     ]

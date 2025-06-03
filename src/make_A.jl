@@ -13,7 +13,7 @@
 #------------------------------------------------------------------------------#
 
 """
-    makeA(ped::DataFrame)
+    make_A(ped::DataFrame)
 
 Create the additive relationship matrix (A matrix) using the tabular method.
 
@@ -48,14 +48,14 @@ ped = DataFrame(
 )
 
 # Create the A matrix
-A = makeA(ped)
+A = make_A(ped)
 ```
 
 # Notes
 For large pedigrees, this may be memory intensive. The diagonal elements contain
 the inbreeding coefficients plus 1.
 """
-function makeA(ped::DataFrame)
+function make_A(ped::DataFrame)
 
     # extract 1st 3 columns (if more from renumered pedigree)
     ped = ped[:, 1:3]

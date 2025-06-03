@@ -1,12 +1,12 @@
 # Make A Matrix
 
 ```@docs
-makeA
+make_A
 ```
 
 ## Description
 
-The `makeA` function creates an additive relationship matrix (A matrix) using the tabular method. This matrix represents the additive genetic relationships between individuals in a pedigree.
+The `make_A` function creates an additive relationship matrix (A matrix) using the tabular method. This matrix represents the additive genetic relationships between individuals in a pedigree.
 
 ## Usage
 
@@ -22,7 +22,7 @@ ped = DataFrame(
 )
 
 # Create the A matrix
-A = makeA(ped)
+A = make_A(ped)
 ```
 
 ## Arguments
